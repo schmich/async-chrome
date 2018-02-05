@@ -1,4 +1,4 @@
-class ChromeError extends Error
+class AsyncChromeError extends Error
 {
   constructor(...params) {
     super(...params);
@@ -33,7 +33,7 @@ function promise(fn) {
     const callback = (...results) => {
       const err = chrome.runtime.lastError;
       if (err) {
-        reject(new ChromeError(err.message));
+        reject(new AsyncChromeError(err.message));
       } else {
         resolve(...results);
       }
@@ -49,7 +49,7 @@ class AsyncTabs
     try {
       return await this.tryCreate(options);
     } catch (e) {
-      if (e instanceof ChromeError) {
+      if (e instanceof AsyncChromeError) {
         // We cannot create a tab if no windows are open. In this case, we must
         // create a window with the desired URL instead.
         const windowOptions = {
