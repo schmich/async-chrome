@@ -1,4 +1,5 @@
-import AsyncTabs from './alarms';
+import AsyncAlarms from './alarms';
+import AsyncTabs from './tabs.js';
 import AsyncStorage from './storage';
 import AsyncWindows from './windows';
 import AsyncNotifications from './notifications';

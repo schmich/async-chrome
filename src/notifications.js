@@ -1,8 +1,8 @@
-import { promise } from './common';
+import async from './async';
 
-class AsyncNotifications
+export default class AsyncNotifications
 {
-  static async create(notificationId, options) {
-    return promise(callback => chrome.notifications.create(notificationId, options, callback));
+  static async create() {
+    return async(chrome.notifications.create, arguments);
   }
 }

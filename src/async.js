@@ -5,14 +5,7 @@ class AsyncChromeError extends Error
   }
 }
 
-class PermissionError extends Error
-{
-  constructor(message) {
-    super(message);
-  }
-}
-
-function promise(fn) {
+export default function async(fn, args) {
   return new Promise((resolve, reject) => {
     const callback = (...results) => {
       const err = chrome.runtime.lastError;
@@ -23,11 +16,6 @@ function promise(fn) {
       }
     };
 
-    fn(callback);
+    fn.call(null, ...args, callback);
   });
 }
-
-export {
-  PermissionError,
-  promise
-};

@@ -1,4 +1,4 @@
-class AsyncFiles
+export default class AsyncFiles
 {
   static async readFile(file, type = null) {
     return new Promise((resolve, reject) => {

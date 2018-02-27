@@ -1,25 +1,25 @@
-import { promise } from './common';
+import async from './async';
 
 // https://developer.chrome.com/extensions/tabs
-class AsyncTabs
+export default class AsyncTabs
 {
-  static async get(tabId) {
-    return promise(callback => chrome.tabs.get(tabId, callback));
+  static async get() {
+    return async(chrome.tabs.get, arguments);
   }
 
-  static async create(createProperties) {
-    return promise(callback => chrome.tabs.create(createProperties, callback));
+  static async create() {
+    return async(chrome.tabs.create, arguments);
   }
 
   static async getCurrent() {
-    return promise(callback => chrome.tabs.getCurrent(callback));
+    return async(chrome.tabs.getCurrent, arguments);
   }
 
-  static async update(tabId, updateProperties) {
-    return promise(callback => chrome.tabs.update(tabId, updateProperties, callback));
+  static async update() {
+    return async(chrome.tabs.update, arguments);
   }
 
-  static async query(queryInfo) {
-    return promise(callback => chrome.tabs.query(queryInfo, callback));
+  static async query() {
+    return async(chrome.tabs.query, arguments);
   }
 }

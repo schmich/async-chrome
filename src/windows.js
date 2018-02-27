@@ -1,12 +1,12 @@
-import { promise } from './common';
+import async from './async';
 
-class AsyncWindows
+export default class AsyncWindows
 {
-  static async create(createData) {
-    return promise(callback => chrome.windows.create(createData, callback));
+  static async create() {
+    return async(chrome.windows.create, arguments);
   }
 
-  static async update(windowId, updateInfo) {
-    return promise(callback => chrome.windows.update(windowId, updateInfo, callback));
+  static async update() {
+    return async(chrome.windows.update, arguments);
   }
 }

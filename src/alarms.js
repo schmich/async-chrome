@@ -1,25 +1,25 @@
-import { PermissionError, promise } from './common';
+import async from './async';
 
 // https://developer.chrome.com/extensions/alarms
-class AsyncAlarms
+export default class AsyncAlarms
 {
-  static create(name, alarmInfo) {
-    return chrome.alarms.create(name, alarmInfo);
+  static create() {
+    return chrome.alarms.create(...arguments);
   }
   
-  static async get(name) {
-    return promise(callback => chrome.alarms.get(name, callback));
+  static async get() {
+    return async(chrome.alarms.get, arguments);
   }
 
-  static getAll() {
-    return promise(callback => chrome.alarms.getAll(callback));
+  static async getAll() {
+    return async(chrome.alarms.getAll, arguments);
   }
 
-  static clear(name) {
-    return promise(callback => chrome.alarms.clear(name, callback));
+  static async clear() {
+    return async(chrome.alarms.clear, arguments);
   }
 
-  static clearAll() {
-    return promise(callback => chrome.alarms.clearAll(callback));
+  static async clearAll() {
+    return async(chrome.alarms.clearAll, arguments);
   }
 }

@@ -1,21 +1,21 @@
-import { promise } from './common';
+import async from './async';
 
-class AsyncStorage
+export default class AsyncStorage
 {
   constructor(store) {
     this.store = store;
   }
 
-  get(keys = null) {
-    return promise(callback => this.store.get(keys, callback));
+  async get() {
+    return async(this.store.get, arguments);
   }
 
-  set(obj) {
-    return promise(callback => this.store.set(obj, callback));
+  async set(obj) {
+    return async(this.store.set, arguments);
   }
 
-  clear() {
-    return promise(callback => this.store.clear(callback));
+  async clear() {
+    return async(this.store.clear, arguments);
   }
 
   static get sync() {

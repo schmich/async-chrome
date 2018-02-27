@@ -3,6 +3,9 @@ const path = require("path");
 module.exports = {
   entry: ["./src/index.js"],
   output: {
+    library: "AsyncChrome",
+    libraryExport: "default",
+    libraryTarget: "window",
     path: path.resolve(__dirname, "dist"),
     filename: "[name].js"
   },
