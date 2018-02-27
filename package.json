@@ -1,0 +1,27 @@
+{
+  "name": "async-chrome",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schmich/async-chrome.git"
+  },
+  "author": "Chris Schmich <schmch@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/schmich/async-chrome/issues"
+  },
+  "homepage": "https://github.com/schmich/async-chrome",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.3",
+    "babel-preset-env": "^1.6.1",
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.9"
+  }
+}
